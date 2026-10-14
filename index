@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appartement Rez-de-Chaussée à Vendre - Quartier Botanique (Saint-Josse)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f9f9f9; }
+        .container { max-width: 1000px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1 { color: #2c3e50; margin-bottom: 5px; font-size: 26px; }
+        .subtitle { color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .price { font-size: 26px; color: #27ae60; font-weight: bold; margin-bottom: 25px; }
+        
+        .main-content { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        @media (max-width: 768px) { .main-content { grid-template-columns: 1fr; } }
+        
+        .photo-box img { width: 100%; height: 100%; min-height: 250px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        
+        .location-box { display: flex; flex-direction: column; gap: 15px; }
+        .address-card { background: #f8f9fa; border-left: 4px solid #2980b9; padding: 15px; border-radius: 0 6px 6px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .address-card strong { color: #2c3e50; display: block; margin-bottom: 5px; font-size: 16px; }
+        .address-card p { margin: 0 0 10px 0; color: #555; font-size: 14px; }
+        .map-link { display: inline-block; font-size: 13px; color: #2980b9; font-weight: bold; text-decoration: none; }
+        .map-link:hover { text-decoration: underline; }
+
+        .highlights-card { background: #eaf2f8; padding: 15px; border-radius: 6px; font-size: 14px; color: #2c3e50; }
+        .highlights-card ul { margin: 5px 0 0 0; padding-left: 20px; }
+        
+        .description-section { margin-bottom: 30px; }
+        .description-text { margin-bottom: 25px; font-size: 15px; color: #444; line-height: 1.7; }
+        
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px; }
+        @media (max-width: 600px) { .details-grid { grid-template-columns: 1fr; } }
+        
+        .detail-box { background: #fdfdfd; border: 1px solid #eee; padding: 15px; border-radius: 6px; }
+        .detail-box h3 { margin-top: 0; color: #2980b9; font-size: 16px; border-bottom: 2px solid #2980b9; padding-bottom: 5px; }
+        .detail-box ul { margin: 0; padding-left: 18px; font-size: 14px; color: #555; }
+        .detail-box li { margin-bottom: 6px; }
+
+        .specs-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        .specs-table td { padding: 10px 12px; border-bottom: 1px solid #eee; font-size: 15px; }
+        .specs-table td:first-child { font-weight: bold; color: #2c3e50; width: 45%; }
+        
+        .video-section { margin-bottom: 35px; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        
+        .contact-section { background: #f0f3f6; padding: 25px; border-radius: 6px; text-align: center; margin-bottom: 30px; }
+        .contact-btn { display: inline-block; background: #2980b9; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 4px; font-weight: bold; margin: 5px; transition: background 0.2s; }
+        .contact-btn:hover { background: #1f6391; }
+        
+        .no-agency { color: #c0392b; font-weight: bold; margin-top: 10px; font-size: 14px; }
+        .legal-notice { font-size: 12px; color: #7f8c8d; text-align: justify; border-top: 1px solid #ddd; padding-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Titre et Prix -->
+    <h1>Rez-de-chaussée 1 chambre – Idéal investissement, étudiant ou premier achat</h1>
+    <div class="subtitle">Quartier Botanique / Saint-Josse – Petite copropriété &amp; Faibles charges</div>
+    <div class="price">Prix sur demande</div>
+
+    <!-- Section Principale : Photo à gauche, Infos & Localisation à droite -->
+    <div class="main-content">
+        <div class="photo-box">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="Photo de l'appartement">
+        </div>
+        
+        <div class="location-box">
+            <div class="address-card">
+                <strong>📍 Adresse &amp; Localisation :</strong>
+                <p>Rue de la Poste 10, 1210 Saint-Josse-ten-Noode<br>
+                (En face de la façade "In Den Ouden Martiko")<br>
+                À 10 min à pied de Rogier / Madou / Gare du Nord</p>
+                <a href="https://maps.google.com/?q=Rue+de+la+Poste+10,+1210+Saint-Josse-ten-Noode" target="_blank" rel="noopener" class="map-link">📍 Ouvrir dans Google Maps ➔</a>
+            </div>
+            
+            <div class="highlights-card">
+                <strong>Points forts du bien :</strong>
+                <ul>
+                    <li><strong>Petite copropriété :</strong> Uniquement 3 appartements, pas de syndic, 12 €/an de charges communes !</li>
+                    <li><strong>Disponibilité :</strong> Libre à l'acte. Prêt à habiter ou à mettre directement en location.</li>
+                    <li><strong>Conformité :</strong> Électricité remise en conformité (valide jusqu'en 11/2043).</li>
+                    <li><strong>Annexes :</strong> Vendu avec 4 petites caves privatives sous le bâtiment.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Description et Agencement -->
+    <div class="description-section">
+        <h2>Description du bien</h2>
+        <p class="description-text">
+            Découvrez cet appartement rez-de-chaussée de 50 m² situé au cœur du quartier Botanique, dans une charmante maison ancienne (avant 1900) divisée en 3 logements en 2011. Ultra-centrale et hyper-connectée, sa situation est idéale à proximité immédiate des transports, des hautes écoles/universités et des commerces.<br><br>
+            Fonctionnel et habitable immédiatement, ce bien offre une gestion simplifiée avec des compteurs entièrement individuels. Des travaux de rafraîchissement/confort restent envisageables pour optimiser son potentiel. <em>Note : le bien ne dispose pas de cour ni de jardin (zéro entretien d'extérieur).</em>
+        </p>
+
+        <!-- Agencement intérieur et Proximité -->
+        <div class="details-grid">
+            <div class="detail-box">
+                <h3>🏠 Agencement intérieur (50 m² - Pièces en enfilade)</h3>
+                <ul>
+                    <li><strong>Séjour / Salle à manger :</strong> Bel espace de vie en enfilade.</li>
+                    <li><strong>Chambre :</strong> 15 m² (avec double vitrage et volets roulants).</li>
+                    <li><strong>Cuisine :</strong> 10 m² lumineuse, située sous plateforme (toiture plate), équipée avec four électrique et taque au gaz.</li>
+                    <li><strong>Salle de douche :</strong> 6 m² avec WC et emplacements prévus pour machine à laver et sèche-linge.</li>
+                    <li><strong>Sous-sol :</strong> 4 petites caves privatives (espace de rangement supplémentaire).</li>
+                </ul>
+            </div>
+
+            <div class="detail-box">
+                <h3>📍 Situation &amp; Transports</h3>
+                <ul>
+                    <li><strong>Botanique (300m / 4 min) :</strong> Métro, Trams 92/93, Bus 61, Bus De Lijn vers Zaventem.</li>
+                    <li><strong>Arrêt Gillon (150m / 2 min) :</strong> Trams 92, 93.</li>
+                    <li><strong>Gare du Nord &amp; Rogier :</strong> 500m - 600m (6 à 8 min à pied).</li>
+                    <li><strong>Loisirs &amp; Shopping :</strong> Jardin Botanique (300m), Rue Neuve / City 2 (7 min), Grand-Place (20 min à pied).</li>
+                    <li><strong>Écoles supérieures :</strong> Université Saint-Louis, LUCA Sint-Lukas, ISSIG, HEB ESI, ISFSC.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Fiche Technique -->
+        <h3>Caractéristiques techniques &amp; Urbanisme</h3>
+        <table class="specs-table">
+            <tr><td>Superficie totale :</td><td>50 m²</td></tr>
+            <tr><td>Type de bien :</td><td>Rez-de-chaussée 1 chambre (sans cour ni jardin)</td></tr>
+            <tr><td>Historique / Urbanisme :</td><td>Maison ancienne (&lt;1900) divisée en 3 appartements en 2011. Renseignements urbanistiques disponibles lors de la visite.</td></tr>
+            <tr><td>Énergie / PEB :</td><td>Classe E- (PEB n° 20200219-0000565203-01-7)</td></tr>
+            <tr><td>Électricité :</td><td>Conforme (Attestation disponible lors de la visite, valide jusqu'en 11/2043)</td></tr>
+            <tr><td>Chauffage &amp; Eau chaude :</td><td>Chaudière individuelle au gaz Vaillant + thermostat Siemens</td></tr>
+            <tr><td>Copropriété :</td><td>3 copropriétaires (1 par étage), pas de syndic, quote-part 315/1000</td></tr>
+            <tr><td>Charges communes :</td><td>~12 € / an (éclairage des parties communes)</td></tr>
+            <tr><td>Compteurs :</td><td>Individuels (Eau, Gaz, Électricité)</td></tr>
+            <tr><td>Revenu Cadastral (RC) :</td><td>446 €</td></tr>
+            <tr><td>Disponibilité :</td><td>Libre à l'acte (occupé actuellement par le propriétaire)</td></tr>
+        </table>
+    </div>
+
+    <!-- Section Visite Vidéo YouTube -->
+    <div class="video-section">
+        <h2>🎥 Visite virtuelle en vidéo</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/UOQYyuPhDTI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Boutons de Contact -->
+    <div class="contact-section">
+        <h2>Ce bien vous intéresse ?</h2>
+        <p>Contactez directement le propriétaire pour organiser une visite :</p>
+        <a href="mailto:ibrahimrais@protonmail.com?subject=Demande%20d'information%20-%20Appartement%20Botanique%20(Rue%20de%20la%20Poste)" class="contact-btn">✉ Envoyer un E-mail</a>
+        <a href="tel:+32493836175" class="contact-btn">📞 Appeler le propriétaire</a>
+        <div class="no-agency">⚠️ Agences s'abstenir SVP</div>
+    </div>
+
+    <!-- Clause de non-responsabilité -->
+    <div class="legal-notice">
+        <strong>Mentions légales :</strong> Les informations et superficies affichées dans cette annonce sont fournies à titre purement indicatif et sont non contractuelles. Elles ne constituent pas une offre de vente au sens juridique. Le propriétaire se réserve le droit d'accepter ou de refuser toute offre d'achat. Les documents officiels (Renseignements urbanistiques, PEB, attestation électrique, titre de propriété) sont disponibles à la consultation sur simple demande lors des visites.
+    </div>
+</div>
+
+</body>
+</html>
