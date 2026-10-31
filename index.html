@@ -96,13 +96,127 @@
         /* Style du message de succès */
         .success-banner { display: none; background: #d4edda; color: #155724; padding: 15px; border-radius: 4px; margin-bottom: 20px; font-weight: bold; text-align: center; border: 1px solid #c3e6cb; }
 
-        /* Optimisation pour l'impression / PDF */
+        /* =========================================================
+           OPTIMISATION IMPRESSION / PDF PROPRE (1 SEULE PAGE)
+           ========================================================= */
         @media print {
-            body { background: #fff; padding: 0; }
-            .container { box-shadow: none; padding: 0; max-width: 100%; }
-            .slider-btn, .zoom-hint, .video-section, .contact-section, .no-agency { display: none !important; }
-            .slide { display: none !important; }
-            .slide.active { display: block !important; height: 250px; }
+            /* Configuration de la page A4 et des marges réduites */
+            @page {
+                size: A4 portrait;
+                margin: 10mm;
+            }
+            
+            body { 
+                background: #fff !important; 
+                padding: 0 !important; 
+                font-size: 11px !important; /* Taille compacte pour tenir sur une page */
+                line-height: 1.3 !important;
+                color: #000 !important;
+            }
+            
+            .container { 
+                box-shadow: none !important; 
+                padding: 0 !important; 
+                max-width: 100% !important; 
+                margin: 0 !important;
+            }
+
+            /* Masquer tout ce qui est inutile sur un PDF imprimé */
+            .slider-container, 
+            .zoom-hint, 
+            .video-section, 
+            .contact-form, 
+            .success-banner, 
+            .header-flex button, /* Cache le bouton imprimer lui-même */
+            .map-card-link img, 
+            .plan-card-link img { 
+                display: none !important; 
+            }
+
+            /* Réduire et condenser les blocs pour que tout tienne sur une page */
+            h1 { font-size: 18px !important; margin-bottom: 2px !important; color: #000 !important; }
+            .subtitle { font-size: 12px !important; margin-bottom: 5px !important; }
+            .price { font-size: 18px !important; color: #27ae60 !important; margin-bottom: 10px !important; }
+
+            .main-content { 
+                display: block !important; 
+                margin-bottom: 10px !important; 
+            }
+
+            .intro-box { 
+                background: none !important; 
+                border: none !important; 
+                border-left: 3px solid #2980b9 !important; 
+                padding: 5px 10px !important; 
+                font-size: 11px !important; 
+                margin-bottom: 10px !important;
+            }
+
+            .situation-section, .agencement-section { 
+                padding: 8px !important; 
+                margin-bottom: 10px !important; 
+                background: none !important;
+                border: 1px solid #ccc !important;
+            }
+
+            .situation-grid, .agencement-grid { 
+                display: block !important; 
+            }
+
+            .location-info h3, .detail-box h3 { 
+                font-size: 12px !important; 
+                border-bottom: 1px solid #2980b9 !important; 
+                margin-bottom: 5px !important;
+            }
+
+            .location-info ul, .detail-box ul { 
+                padding-left: 15px !important; 
+                margin-bottom: 0 !important;
+            }
+
+            .location-info li, .detail-box li { 
+                margin-bottom: 3px !important; 
+            }
+
+            .specs-table td { 
+                padding: 3px 6px !important; 
+                font-size: 10.5px !important; 
+                border-bottom: 1px solid #eee !important;
+            }
+
+            /* Simplifier les liens cliquables pour l'impression papier */
+            a { color: #000 !important; text-decoration: none !important; }
+            
+            /* Encadré contact final épuré */
+            .contact-section { 
+                background: none !important; 
+                border: 1px solid #333 !important; 
+                padding: 8px !important; 
+                text-align: center !important; 
+                margin-top: 10px !important;
+                margin-bottom: 5px !important;
+            }
+            .contact-btn { 
+                background: none !important; 
+                color: #000 !important; 
+                border: 1px solid #666 !important; 
+                padding: 3px 8px !important; 
+                font-size: 11px !important; 
+                margin: 2px !important;
+            }
+            .no-agency { 
+                color: #c0392b !important; 
+                font-size: 11px !important; 
+                margin-top: 5px !important; 
+            }
+
+            .legal-notice { 
+                font-size: 8px !important; 
+                color: #555 !important; 
+                border-top: 1px solid #ccc !important; 
+                padding-top: 5px !important; 
+                margin-top: 5px !important;
+            }
         }
     </style>
 </head>
