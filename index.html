@@ -11,10 +11,18 @@
         .subtitle { color: #e67e22; font-weight: bold; font-size: 15px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
         .price { font-size: 26px; color: #27ae60; font-weight: bold; margin-bottom: 25px; }
         
-        .main-content { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .main-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; margin-bottom: 30px; }
         @media (max-width: 768px) { .main-content { grid-template-columns: 1fr; } }
         
-        .photo-box img { width: 100%; height: 100%; min-height: 250px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        /* Style de la galerie défilante */
+        .slider-container { position: relative; width: 100%; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); background: #000; }
+        .slide { display: none; width: 100%; height: 320px; object-fit: cover; }
+        .slide.active { display: block; }
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 22px; padding: 10px 15px; cursor: pointer; border-radius: 3px; transition: background 0.2s; z-index: 10; }
+        .slider-btn:hover { background: rgba(0,0,0,0.8); }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+        .slide-counter { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; padding: 4px 8px; font-size: 12px; border-radius: 4px; z-index: 10; }
         
         .intro-box { background: #fdfdfd; border: 1px solid #e0e0e0; border-left: 4px solid #2980b9; padding: 20px; border-radius: 0 6px 6px 0; font-size: 15px; color: #444; line-height: 1.7; display: flex; flex-direction: column; justify-content: center; }
 
@@ -68,10 +76,38 @@
     <div class="subtitle">Quartier Botanique, 1210 Saint-Josse-ten-Noode</div>
     <div class="price">175.000 €</div>
 
-    <!-- Section Principale : Photo à gauche, Accroche & description fusionnées à droite -->
+    <!-- Section Principale : Galerie Photo à gauche, Accroche & description fusionnées à droite -->
     <div class="main-content">
-        <div class="photo-box">
-            <img src="salon1.jpg" alt="Photo de l'appartement">
+        <div class="slider-container">
+            <!-- 1. Botanique -->
+            <img src="Botanique (3).jpg" class="slide active" alt="Jardin Botanique">
+            <!-- 2. Maison -->
+            <img src="maison.jpg" class="slide" alt="Façade de la maison">
+            <!-- 3. Salon 1, 2, 5 -->
+            <img src="salon1.jpg" class="slide" alt="Salon - Vue 1">
+            <img src="salon2.jpg" class="slide" alt="Salon - Vue 2">
+            <img src="Salon3.jpg" class="slide" alt="Salon - Vue 3">
+            <!-- 4. Room 1, 2, 4 -->
+            <img src="room1.jpg" class="slide" alt="Chambre - Vue 1">
+            <img src="room2.jpg" class="slide" alt="Chambre - Vue 2">
+            <img src="room4.jpg" class="slide" alt="Chambre - Vue 3">
+            <!-- 5. Bathroom 1, 2, 3 -->
+            <img src="bathroom1.jpg" class="slide" alt="Salle de bain - Vue 1">
+            <img src="bathroom2.jpg" class="slide" alt="Salle de bain - Vue 2">
+            <img src="bathroom3.jpg" class="slide" alt="Salle de bain - Vue 3">
+            <!-- 6. Kitchen -->
+            <img src="kitchen.jpg" class="slide" alt="Cuisine lumineuse">
+            <!-- 7. PF -->
+            <img src="PF.jpg" class="slide" alt="Plateforme lumineuse">
+            <!-- 8. ELEC -->
+            <img src="ELEC.png" class="slide" alt="Attestation Électricité">
+            <!-- 9. PEB -->
+            <img src="PEB.png" class="slide" alt="Certificat PEB">
+
+            <!-- Boutons de navigation -->
+            <button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+            <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">15</span></div>
         </div>
         
         <div class="intro-box">
@@ -182,6 +218,35 @@
         <strong>Mentions légales :</strong> Les informations et superficies affichées dans cette annonce sont fournies à-titre purement indicatif et sont non contractuelles. Elles ne constituent pas une offre de vente au sens juridique. Le propriétaire se réserve le droit d'accepter ou de refuser toute offre d'achat. Les documents officiels (Renseignements urbanistiques, PEB, attestation électrique, titre de propriété) sont disponibles à la consultation sur simple demande lors des visites.
     </div>
 </div>
+
+<!-- Script JavaScript pour faire fonctionner la galerie -->
+<script>
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlidesSpan = document.getElementById('total-slides');
+    const currentSlideSpan = document.getElementById('current-slide');
+    
+    // Initialisation du total
+    totalSlidesSpan.textContent = slides.length;
+
+    function showSlide(index) {
+        if (index >= slides.length) {
+            currentSlideIndex = 0;
+        } else if (index < 0) {
+            currentSlideIndex = slides.length - 1;
+        } else {
+            currentSlideIndex = index;
+        }
+
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[currentSlideIndex].classList.add('active');
+        currentSlideSpan.textContent = currentSlideIndex + 1;
+    }
+
+    function changeSlide(n) {
+        showSlide(currentSlideIndex + n);
+    }
+</script>
 
 </body>
 </html>
