@@ -47,8 +47,11 @@
         /* Section Situation géographique & Agencement */
         .situation-section, .agencement-section { margin-bottom: 35px; background: #fdfdfd; border: 1px solid #eee; padding: 20px; border-radius: 8px; }
         .situation-grid, .agencement-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; align-items: start; }
+        
+        /* Correction responsive mobile pour la section situation (on masque l'image carte sur mobile et on met le texte en plein écran) */
         @media (max-width: 768px) { 
-            .situation-grid { grid-template-columns: 1fr; } 
+            .situation-grid { display: block; } 
+            .map-wrapper { display: none !important; }
             .agencement-grid { grid-template-columns: 1fr; }
         }
 
@@ -72,7 +75,7 @@
 
         .specs-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
         .specs-table td { padding: 10px 12px; border-bottom: 1px solid #eee; font-size: 15px; vertical-align: top; }
-        .specs-table td:first-child { font-weight: bold; color: #2c3e50; width: 28%; } /* Resserré pour laisser plus de place à droite */
+        .specs-table td:first-child { font-weight: bold; color: #2c3e50; width: 28%; }
         
         .video-section { margin-bottom: 35px; }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
@@ -120,7 +123,6 @@
                 margin: 0 !important;
             }
 
-            /* Masquer les éléments interactifs inutiles sur papier */
             .slider-container, 
             .zoom-hint, 
             .video-section, 
@@ -131,7 +133,6 @@
                 display: none !important; 
             }
 
-            /* Conserver uniquement l'image du Plan en grand format optimisé */
             .plan-card-link {
                 box-shadow: none !important;
                 border: none !important;
@@ -168,14 +169,13 @@
                 border: 1px solid #ccc !important;
             }
 
-            /* Grille de situation : le cadre transport prend désormais 100% de la largeur puisqu'on a retiré la carte */
             .situation-grid { 
                 display: block !important; 
             }
 
             .agencement-grid { 
                 display: grid !important;
-                grid-template-columns: 120px 1fr !important; /* Plan compact à gauche, texte à droite */
+                grid-template-columns: 120px 1fr !important;
                 gap: 10px !important;
                 align-items: center !important;
             }
@@ -206,12 +206,11 @@
                 vertical-align: top !important;
             }
             .specs-table td:first-child {
-                width: 32% !important; /* Resserré pour donner un max d'espace à droite */
+                width: 32% !important;
             }
 
             a { color: #000 !important; text-decoration: none !important; }
             
-            /* Bloc de contact épuré pour le PDF */
             .print-contact-box {
                 display: block !important;
                 border: 1px solid #333 !important;
@@ -234,7 +233,6 @@
             }
         }
 
-        /* Masqué à l'écran, affiché uniquement sur le PDF/Impression */
         .print-contact-box { display: none; }
     </style>
 </head>
@@ -315,13 +313,12 @@
 
     <!-- Section Situation géographique -->
     <div class="situation-section">
-        <!-- Titre masqué sur le PDF -->
         <h2 style="margin-top:0; color:#2c3e50;">📍 Situation géographique & Transports</h2>
         <p style="font-size: 15px; color: #555; margin-top: 5px;">
             <strong>Adresse :</strong> Rue de la Poste 10, 1210 Saint-Josse-ten-Noode
         </p>
         <div class="situation-grid">
-            <!-- Photo Carte (Masquée à l'impression pour gagner de la place) -->
+            <!-- Photo Carte (Masquée sur mobile et sur PDF) -->
             <div class="map-wrapper">
                 <a href="https://maps.google.com/?q=Rue+de+la+Poste+10,+1210+Saint-Josse-ten-Noode" target="_blank" rel="noopener" class="map-card-link">
                     <img src="Situation.jpg" alt="Situation géographique - Rue de la Poste, Saint-Josse" class="map-img">
@@ -329,7 +326,7 @@
                 </a>
             </div>
 
-            <!-- Informations Proximités (qui s'étale sur toute la largeur à l'impression) -->
+            <!-- Informations Proximités (Prend toute la largeur sur mobile et PDF) -->
             <div class="location-info">
                 <h3>Proximités & Accès</h3>
                 <ul>
@@ -468,7 +465,7 @@
     
     totalSlidesSpan.textContent = slides.length;
 
-    function showSlide(index) {
+    sectionShowSlide = function(index) {
         if (index >= slides.length) {
             currentSlideIndex = 0;
         } else if (index < 0) {
@@ -483,7 +480,7 @@
     }
 
     function changeSlide(n) {
-        showSlide(currentSlideIndex + n);
+        sectionShowSlide(currentSlideIndex + n);
     }
 
     function openModal(imgElement) {
