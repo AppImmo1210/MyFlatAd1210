@@ -16,7 +16,10 @@
         .container { max-width: 1000px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         h1 { color: #2c3e50; margin-bottom: 5px; font-size: 26px; }
         .subtitle { color: #e67e22; font-weight: bold; font-size: 15px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .price { font-size: 26px; color: #27ae60; font-weight: bold; margin-bottom: 25px; }
+        
+        /* En-tête avec Prix et Bouton Imprimer alignés */
+        .header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 15px; }
+        .price { font-size: 26px; color: #27ae60; font-weight: bold; margin: 0; }
         
         .main-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; margin-bottom: 30px; }
         @media (max-width: 768px) { .main-content { grid-template-columns: 1fr; } }
@@ -68,8 +71,8 @@
         .detail-box li { margin-bottom: 6px; }
 
         .specs-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-        .specs-table td { padding: 10px 12px; border-bottom: 1px solid #eee; font-size: 15px; }
-        .specs-table td:first-child { font-weight: bold; color: #2c3e50; width: 45%; }
+        .specs-table td { padding: 10px 12px; border-bottom: 1px solid #eee; font-size: 15px; vertical-align: top; }
+        .specs-table td:first-child { font-weight: bold; color: #2c3e50; width: 35%; }
         
         .video-section { margin-bottom: 35px; }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
@@ -103,10 +106,15 @@
 <body>
 
 <div class="container">
-    <!-- Titre et Prix -->
+    <!-- Titre et Sous-titre -->
     <h1>Appartement 1 chambre à vendre à Bruxelles</h1>
     <div class="subtitle">Quartier Botanique, 1210 Saint-Josse-ten-Noode</div>
-    <div class="price">175.000 €</div>
+
+    <!-- Ligne Prix + Bouton Imprimer en haut à droite -->
+    <div class="header-flex">
+        <div class="price">175.000 €</div>
+        <button onclick="window.print()" class="contact-btn" style="background: #e67e22; border: none; cursor: pointer;">🖨️ Imprimer / PDF</button>
+    </div>
 
     <!-- Section Principale : Galerie Photo à gauche, Accroche & description fusionnées à droite -->
     <div class="main-content">
@@ -129,7 +137,7 @@
             <img src="bathroom3.jpg" class="slide" alt="Salle de bain - Vue 3" onclick="openModal(this)">
             <!-- 6. Kitchen -->
             <img src="kitchen.jpg" class="slide" alt="Cuisine lumineuse" onclick="openModal(this)">
-            <!-- 7. PF --
+            <!-- 7. PF -->
             <img src="PF.jpg" class="slide" alt="Plateforme lumineuse" onclick="openModal(this)">
             <!-- 8. ELEC -->
             <img src="ELEC.png" class="slide" alt="Attestation Électricité" onclick="openModal(this)">
@@ -235,11 +243,22 @@
             <tr><td>Charges communes :</td><td>~12 € / an (éclairage des parties communes, parlophone)</td></tr>
             <tr><td>Électricité :</td><td>Conforme (attestation valide jusqu'en 11/2043)</td></tr>
             <tr><td>Chauffage &amp; Eau chaude :</td><td>Chaudière individuelle au gaz Vaillant</td></tr>
-            <tr><td>Certificat PEB :</td><td>Classe E (<a href="https://www.peb-epb.brussels/certificats-certificaten/pages/index.xhtml?redirectToParent=true" target="_blank" rel="noopener noreferrer">valide, n° 20200219-0000565203-01-7</a>)</td></tr>
+            <tr><td>Certificat PEB :</td><td>Classe E (valide, n° <a href="https://github.com/AppImmo1210/MyFlatAd1210/blob/main/20200219-0000565203-01-7.pdf" target="_blank" rel="noopener noreferrer">20200219-0000565203-01-7 📄 PDF</a>)</td></tr>
             <tr><td>Compteurs :</td><td>Individuels (Eau, Gaz, Électricité). Opérationnels.</td></tr>
             <tr><td>Revenu Cadastral (RC) :</td><td>446 €</td></tr>
             <tr><td>Disponibilité :</td><td>Libre à l'acte (cause de la vente : départ à l'étranger)</td></tr>
-            <tr><td>Urbanisme :</td><td>Rien à signaler. Renseignements urbanistiques et attestations disponibles lors de la visite.</td></tr>
+            <tr>
+                <td>Urbanisme :</td>
+                <td>
+                    • Le bien se situe au Plan Régional d’Affectation du Sol (PRAS) approuvé par arrêté du Gouvernement du 3 mai 2001, en zone d'habitation ;<br>
+                    • Le bien est compris dans le contrat de rénovation urbaine suivant : Brabant – Nord – Saint-Lazare A.G.23/11/2017 ;<br>
+                    • Le bien se situe en zone d’Espace de développement renforcé du logement et de la rénovation (EDRLR) ;<br>
+                    • Le bien se situe dans le périmètre de la Zone de Revitalisation Urbaine ;<br>
+                    • Deux P.U. (1909, 1926) ;<br>
+                    • <strong>Destination urbanistique licite :</strong> Logement ;<br>
+                    • <strong>Utilisation(s) urbanistique(s) licite(s) :</strong> Appartement comprenant chambre, séjour, salle de bain, cuisine et caves en sous-sol.
+                </td>
+            </tr>
         </table>
     </div>
 
