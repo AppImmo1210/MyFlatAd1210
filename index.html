@@ -97,20 +97,19 @@
         .success-banner { display: none; background: #d4edda; color: #155724; padding: 15px; border-radius: 4px; margin-bottom: 20px; font-weight: bold; text-align: center; border: 1px solid #c3e6cb; }
 
         /* =========================================================
-           OPTIMISATION IMPRESSION / PDF PROPRE (1 SEULE PAGE)
+           OPTIMISATION IMPRESSION / PDF (1 SEULE PAGE ULTRA-PROPRE)
            ========================================================= */
         @media print {
-            /* Configuration de la page A4 et des marges réduites */
             @page {
                 size: A4 portrait;
-                margin: 10mm;
+                margin: 8mm;
             }
             
             body { 
                 background: #fff !important; 
                 padding: 0 !important; 
-                font-size: 11px !important; /* Taille compacte pour tenir sur une page */
-                line-height: 1.3 !important;
+                font-size: 10px !important; 
+                line-height: 1.25 !important;
                 color: #000 !important;
             }
             
@@ -121,103 +120,112 @@
                 margin: 0 !important;
             }
 
-            /* Masquer tout ce qui est inutile sur un PDF imprimé */
+            /* Masquer les éléments interactifs, boutons, formulaires et légendes cliquables inutiles sur papier */
             .slider-container, 
             .zoom-hint, 
             .video-section, 
-            .contact-form, 
-            .success-banner, 
-            .header-flex button, /* Cache le bouton imprimer lui-même */
-            .map-card-link img, 
-            .plan-card-link img { 
+            .contact-section, 
+            .header-flex button, 
+            .map-caption, 
+            .plan-caption { 
                 display: none !important; 
             }
 
-            /* Réduire et condenser les blocs pour que tout tienne sur une page */
-            h1 { font-size: 18px !important; margin-bottom: 2px !important; color: #000 !important; }
-            .subtitle { font-size: 12px !important; margin-bottom: 5px !important; }
-            .price { font-size: 18px !important; color: #27ae60 !important; margin-bottom: 10px !important; }
+            /* Conserver les images de la carte et du plan mais sans les cadres cliquables lourds */
+            .map-card-link, .plan-card-link {
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .map-img, .plan-img {
+                max-height: 120px !important;
+                object-fit: cover !important;
+                border: 1px solid #ccc !important;
+                border-radius: 4px !important;
+            }
+
+            h1 { font-size: 16px !important; margin-bottom: 2px !important; color: #000 !important; }
+            .subtitle { font-size: 11px !important; margin-bottom: 4px !important; }
+            .price { font-size: 16px !important; color: #27ae60 !important; margin-bottom: 8px !important; }
 
             .main-content { 
                 display: block !important; 
-                margin-bottom: 10px !important; 
+                margin-bottom: 8px !important; 
             }
 
             .intro-box { 
                 background: none !important; 
                 border: none !important; 
-                border-left: 3px solid #2980b9 !important; 
-                padding: 5px 10px !important; 
-                font-size: 11px !important; 
-                margin-bottom: 10px !important;
+                border-left: 2px solid #2980b9 !important; 
+                padding: 4px 8px !important; 
+                font-size: 10px !important; 
+                margin-bottom: 8px !important;
             }
 
             .situation-section, .agencement-section { 
-                padding: 8px !important; 
-                margin-bottom: 10px !important; 
+                padding: 6px !important; 
+                margin-bottom: 8px !important; 
                 background: none !important;
-                border: 1px solid #ccc !important;
+                border: 1px solid #ddd !important;
             }
 
             .situation-grid, .agencement-grid { 
-                display: block !important; 
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 10px !important;
             }
 
             .location-info h3, .detail-box h3 { 
-                font-size: 12px !important; 
+                font-size: 11px !important; 
                 border-bottom: 1px solid #2980b9 !important; 
-                margin-bottom: 5px !important;
+                margin-bottom: 3px !important;
+                margin-top: 0 !important;
             }
 
             .location-info ul, .detail-box ul { 
-                padding-left: 15px !important; 
+                padding-left: 12px !important; 
                 margin-bottom: 0 !important;
             }
 
             .location-info li, .detail-box li { 
-                margin-bottom: 3px !important; 
+                margin-bottom: 2px !important; 
             }
 
+            .specs-table {
+                margin-bottom: 8px !important;
+            }
             .specs-table td { 
-                padding: 3px 6px !important; 
-                font-size: 10.5px !important; 
+                padding: 2px 4px !important; 
+                font-size: 9.5px !important; 
                 border-bottom: 1px solid #eee !important;
             }
 
-            /* Simplifier les liens cliquables pour l'impression papier */
             a { color: #000 !important; text-decoration: none !important; }
             
-            /* Encadré contact final épuré */
-            .contact-section { 
-                background: none !important; 
-                border: 1px solid #333 !important; 
-                padding: 8px !important; 
-                text-align: center !important; 
-                margin-top: 10px !important;
-                margin-bottom: 5px !important;
-            }
-            .contact-btn { 
-                background: none !important; 
-                color: #000 !important; 
-                border: 1px solid #666 !important; 
-                padding: 3px 8px !important; 
-                font-size: 11px !important; 
-                margin: 2px !important;
-            }
-            .no-agency { 
-                color: #c0392b !important; 
-                font-size: 11px !important; 
-                margin-top: 5px !important; 
+            /* Remplacement propre du bloc de contact pour le PDF */
+            .print-contact-box {
+                display: block !important;
+                border: 1px solid #333 !important;
+                padding: 6px !important;
+                text-align: center !important;
+                font-weight: bold !important;
+                font-size: 11px !important;
+                margin-top: 8px !important;
+                margin-bottom: 6px !important;
+                background: #fdfdfd !important;
             }
 
             .legal-notice { 
-                font-size: 8px !important; 
-                color: #555 !important; 
+                font-size: 7.5px !important; 
+                color: #666 !important; 
                 border-top: 1px solid #ccc !important; 
-                padding-top: 5px !important; 
-                margin-top: 5px !important;
+                padding-top: 4px !important; 
+                margin-top: 4px !important; 
+                text-align: justify !important;
             }
         }
+
+        /* Masqué à l'écran, affiché uniquement sur le PDF/Impression */
+        .print-contact-box { display: none; }
     </style>
 </head>
 <body>
@@ -302,7 +310,7 @@
             <strong>Adresse :</strong> Rue de la Poste 10, 1210 Saint-Josse-ten-Noode
         </p>
         <div class="situation-grid">
-            <!-- Photo Carte cliquable -->
+            <!-- Photo Carte -->
             <div class="map-wrapper">
                 <a href="https://maps.google.com/?q=Rue+de+la+Poste+10,+1210+Saint-Josse-ten-Noode" target="_blank" rel="noopener" class="map-card-link">
                     <img src="Situation.jpg" alt="Situation géographique - Rue de la Poste, Saint-Josse" class="map-img">
@@ -379,7 +387,12 @@
         </table>
     </div>
 
-    <!-- Section de Contact & Actions (Imprimer, Signal, Telegram, etc.) -->
+    <!-- Bloc de contact spécifique affiché UNIQUEMENT sur le PDF/Impression -->
+    <div class="print-contact-box">
+        📞 Contact : 0493 83 61 75 | ✉️ ibrahimrais@protonmail.com | ⚠️ Agences s'abstenir
+    </div>
+
+    <!-- Section de Contact & Actions (Affichée sur le site web) -->
     <div class="contact-section">
         <h2>Ce bien vous intéresse ?</h2>
         <p>Contactez directement le propriétaire :</p>
@@ -397,18 +410,15 @@
 
         <!-- Formulaire de contact tout en bas -->
         <div class="contact-form">
-            <!-- Message de succès (masqué par défaut, affiché après envoi) -->
             <div id="success-banner" class="success-banner">
-                ✅ Votre message a bien été envoyé ! Je vous recontacterai rapidement.
+                ✅ Votre message a bien été envoyé ! Le propriétaire vous recontactera rapidement.
             </div>
 
             <h3 style="margin-top:0; color:#2c3e50; text-align:center;">Formulaire de demande de visite</h3>
             
             <form action="https://formsubmit.co/ibrahimrais@protonmail.com" method="POST">
-                <!-- Configuration FormSubmit -->
                 <input type="hidden" name="_subject" value="Nouvelle demande de visite - Rue de la Poste 10">
                 <input type="hidden" name="_captcha" value="false">
-                <!-- Redirection automatique avec paramètre de succès -->
                 <input type="hidden" name="_next" value="https://appimmo1210.github.io/MyFlatAd1210/?sent=true">
                 
                 <div class="form-group">
@@ -438,14 +448,13 @@
     </div>
 </div>
 
-<!-- Script JavaScript pour la galerie, le zoom et l'affichage du message de succès -->
+<!-- Script JavaScript -->
 <script>
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlidesSpan = document.getElementById('total-slides');
     const currentSlideSpan = document.getElementById('current-slide');
     
-    // Initialisation du total
     totalSlidesSpan.textContent = slides.length;
 
     function showSlide(index) {
@@ -457,36 +466,4 @@
             currentSlideIndex = index;
         }
 
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[currentSlideIndex].classList.add('active');
-        currentSlideSpan.textContent = currentSlideIndex + 1;
-    }
-
-    function changeSlide(n) {
-        showSlide(currentSlideIndex + n);
-    }
-
-    // Fonctions pour ouvrir et fermer l'image en grand (Lightbox)
-    function openModal(imgElement) {
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImg');
-        modal.style.display = "flex";
-        modalImg.src = imgElement.src;
-    }
-
-    function closeModal() {
-        document.getElementById('imageModal').style.display = "none";
-    }
-
-    // Affichage automatique du message de succès si le formulaire vient d'être envoyé
-    if (window.location.search.includes('sent=true')) {
-        const successBanner = document.getElementById('success-banner');
-        if (successBanner) {
-            successBanner.style.display = 'block';
-            successBanner.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-</script>
-
-</body>
-</html>
+        slides.forEach(slide => slide.classList
