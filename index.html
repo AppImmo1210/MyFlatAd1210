@@ -53,11 +53,11 @@
         }
 
         .map-wrapper, .plan-wrapper { text-align: center; }
-        .map-card-link, .plan-card-link { display: block; text-decoration: none; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .map-card-link:hover, .plan-card-link:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
-        .map-img, .plan-img { width: 100%; max-height: 300px; object-fit: cover; display: block; border-radius: 8px 8px 0 0; }
-        .map-caption, .plan-caption { background: #2980b9; color: #fff; padding: 10px 15px; font-weight: bold; font-size: 14px; display: block; }
-        .map-caption:hover, .plan-caption:hover { background: #1f6391; }
+        .plan-card-link { display: block; text-decoration: none; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .plan-card-link:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+        .plan-img { width: 100%; max-height: 300px; object-fit: cover; display: block; border-radius: 8px 8px 0 0; }
+        .plan-caption { background: #2980b9; color: #fff; padding: 10px 15px; font-weight: bold; font-size: 14px; display: block; }
+        .plan-caption:hover { background: #1f6391; }
 
         .location-info h3 { margin-top: 0; color: #2980b9; font-size: 18px; border-bottom: 2px solid #2980b9; padding-bottom: 5px; }
         .location-info ul { margin: 0; padding-left: 18px; font-size: 14px; color: #555; }
@@ -72,7 +72,7 @@
 
         .specs-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
         .specs-table td { padding: 10px 12px; border-bottom: 1px solid #eee; font-size: 15px; vertical-align: top; }
-        .specs-table td:first-child { font-weight: bold; color: #2c3e50; width: 35%; }
+        .specs-table td:first-child { font-weight: bold; color: #2c3e50; width: 28%; } /* Resserré pour laisser plus de place à droite */
         
         .video-section { margin-bottom: 35px; }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
@@ -102,14 +102,14 @@
         @media print {
             @page {
                 size: A4 portrait;
-                margin: 8mm;
+                margin: 6mm;
             }
             
             body { 
                 background: #fff !important; 
                 padding: 0 !important; 
-                font-size: 10px !important; 
-                line-height: 1.25 !important;
+                font-size: 9.5px !important; 
+                line-height: 1.15 !important;
                 color: #000 !important;
             }
             
@@ -120,106 +120,116 @@
                 margin: 0 !important;
             }
 
-            /* Masquer les éléments interactifs, boutons, formulaires et légendes cliquables inutiles sur papier */
+            /* Masquer les éléments interactifs inutiles sur papier */
             .slider-container, 
             .zoom-hint, 
             .video-section, 
             .contact-section, 
             .header-flex button, 
-            .map-caption, 
-            .plan-caption { 
+            .plan-caption,
+            .map-wrapper { 
                 display: none !important; 
             }
 
-            /* Conserver les images de la carte et du plan mais sans les cadres cliquables lourds */
-            .map-card-link, .plan-card-link {
+            /* Conserver uniquement l'image du Plan en grand format optimisé */
+            .plan-card-link {
                 box-shadow: none !important;
                 border: none !important;
             }
-            .map-img, .plan-img {
-                max-height: 120px !important;
+            .plan-img {
+                max-height: 130px !important;
                 object-fit: cover !important;
-                border: 1px solid #ccc !important;
-                border-radius: 4px !important;
+                border: 1px solid #999 !important;
+                border-radius: 3px !important;
             }
 
-            h1 { font-size: 16px !important; margin-bottom: 2px !important; color: #000 !important; }
-            .subtitle { font-size: 11px !important; margin-bottom: 4px !important; }
-            .price { font-size: 16px !important; color: #27ae60 !important; margin-bottom: 8px !important; }
+            h1 { font-size: 15px !important; margin-bottom: 2px !important; color: #000 !important; }
+            .subtitle { font-size: 10px !important; margin-bottom: 3px !important; }
+            .price { font-size: 15px !important; color: #27ae60 !important; margin-bottom: 6px !important; }
 
             .main-content { 
                 display: block !important; 
-                margin-bottom: 8px !important; 
+                margin-bottom: 6px !important; 
             }
 
             .intro-box { 
                 background: none !important; 
                 border: none !important; 
                 border-left: 2px solid #2980b9 !important; 
-                padding: 4px 8px !important; 
-                font-size: 10px !important; 
-                margin-bottom: 8px !important;
+                padding: 3px 6px !important; 
+                font-size: 9.5px !important; 
+                margin-bottom: 6px !important;
             }
 
             .situation-section, .agencement-section { 
-                padding: 6px !important; 
-                margin-bottom: 8px !important; 
+                padding: 5px !important; 
+                margin-bottom: 6px !important; 
                 background: none !important;
-                border: 1px solid #ddd !important;
+                border: 1px solid #ccc !important;
             }
 
-            .situation-grid, .agencement-grid { 
+            /* Grille de situation : le cadre transport prend désormais 100% de la largeur puisqu'on a retiré la carte */
+            .situation-grid { 
+                display: block !important; 
+            }
+
+            .agencement-grid { 
                 display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
+                grid-template-columns: 120px 1fr !important; /* Plan compact à gauche, texte à droite */
                 gap: 10px !important;
+                align-items: center !important;
             }
 
             .location-info h3, .detail-box h3 { 
-                font-size: 11px !important; 
+                font-size: 10.5px !important; 
                 border-bottom: 1px solid #2980b9 !important; 
-                margin-bottom: 3px !important;
+                margin-bottom: 2px !important;
                 margin-top: 0 !important;
             }
 
             .location-info ul, .detail-box ul { 
-                padding-left: 12px !important; 
+                padding-left: 10px !important; 
                 margin-bottom: 0 !important;
             }
 
             .location-info li, .detail-box li { 
-                margin-bottom: 2px !important; 
+                margin-bottom: 1px !important; 
             }
 
             .specs-table {
-                margin-bottom: 8px !important;
+                margin-bottom: 6px !important;
             }
             .specs-table td { 
-                padding: 2px 4px !important; 
-                font-size: 9.5px !important; 
+                padding: 1.5px 3px !important; 
+                font-size: 9px !important; 
                 border-bottom: 1px solid #eee !important;
+                vertical-align: top !important;
+            }
+            .specs-table td:first-child {
+                width: 32% !important; /* Resserré pour donner un max d'espace à droite */
             }
 
             a { color: #000 !important; text-decoration: none !important; }
             
-            /* Remplacement propre du bloc de contact pour le PDF */
+            /* Bloc de contact épuré pour le PDF */
             .print-contact-box {
                 display: block !important;
                 border: 1px solid #333 !important;
-                padding: 6px !important;
+                padding: 5px !important;
                 text-align: center !important;
                 font-weight: bold !important;
-                font-size: 11px !important;
-                margin-top: 8px !important;
-                margin-bottom: 6px !important;
+                font-size: 10px !important;
+                margin-top: 6px !important;
+                margin-bottom: 4px !important;
                 background: #fdfdfd !important;
             }
 
             .legal-notice { 
-                font-size: 7.5px !important; 
-                color: #666 !important; 
+                font-size: 7px !important; 
+                color: #555 !important; 
                 border-top: 1px solid #ccc !important; 
-                padding-top: 4px !important; 
-                margin-top: 4px !important; 
+                padding-top: 3px !important; 
+                margin-top: 3px !important; 
                 text-align: justify !important;
             }
         }
@@ -305,12 +315,13 @@
 
     <!-- Section Situation géographique -->
     <div class="situation-section">
+        <!-- Titre masqué sur le PDF -->
         <h2 style="margin-top:0; color:#2c3e50;">📍 Situation géographique & Transports</h2>
         <p style="font-size: 15px; color: #555; margin-top: 5px;">
             <strong>Adresse :</strong> Rue de la Poste 10, 1210 Saint-Josse-ten-Noode
         </p>
         <div class="situation-grid">
-            <!-- Photo Carte -->
+            <!-- Photo Carte (Masquée à l'impression pour gagner de la place) -->
             <div class="map-wrapper">
                 <a href="https://maps.google.com/?q=Rue+de+la+Poste+10,+1210+Saint-Josse-ten-Noode" target="_blank" rel="noopener" class="map-card-link">
                     <img src="Situation.jpg" alt="Situation géographique - Rue de la Poste, Saint-Josse" class="map-img">
@@ -318,7 +329,7 @@
                 </a>
             </div>
 
-            <!-- Informations Proximités -->
+            <!-- Informations Proximités (qui s'étale sur toute la largeur à l'impression) -->
             <div class="location-info">
                 <h3>Proximités & Accès</h3>
                 <ul>
@@ -466,4 +477,34 @@
             currentSlideIndex = index;
         }
 
-        slides.forEach(slide => slide.classList
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[currentSlideIndex].classList.add('active');
+        currentSlideSpan.textContent = currentSlideIndex + 1;
+    }
+
+    function changeSlide(n) {
+        showSlide(currentSlideIndex + n);
+    }
+
+    function openModal(imgElement) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modal.style.display = "flex";
+        modalImg.src = imgElement.src;
+    }
+
+    function closeModal() {
+        document.getElementById('imageModal').style.display = "none";
+    }
+
+    if (window.location.search.includes('sent=true')) {
+        const successBanner = document.getElementById('success-banner');
+        if (successBanner) {
+            successBanner.style.display = 'block';
+            successBanner.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
+
+</body>
+</html>
