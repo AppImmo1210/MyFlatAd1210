@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appartement 1 chambre à vendre à Bruxelles - Quartier Botanique, 1210 Saint-Josse-ten-Noode</title>
+    
+    <!-- Balises Open Graph pour un partage propre -->
+    <meta property="og:title" content="Appartement 1 ch. à vendre - 175.000 € - Bruxelles Botanique">
+    <meta property="og:description" content="55m², électricité conforme, PEB E-, idéal premier achat ou investissement près du Botanique.">
+    <meta property="og:image" content="https://appimmo1210.github.io/MyFlatAd1210/Botanique%20(3).jpg">
+    <meta property="og:url" content="https://appimmo1210.github.io/MyFlatAd1210/">
+
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f9f9f9; }
         .container { max-width: 1000px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -69,11 +76,28 @@
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         
         .contact-section { background: #f0f3f6; padding: 25px; border-radius: 6px; text-align: center; margin-bottom: 30px; }
-        .contact-btn { display: inline-block; background: #2980b9; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 4px; font-weight: bold; margin: 5px; transition: background 0.2s; }
+        .contact-btn { display: inline-block; background: #2980b9; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold; margin: 5px; transition: background 0.2s; font-size: 14px; }
         .contact-btn:hover { background: #1f6391; }
         
         .no-agency { color: #c0392b; font-weight: bold; margin-top: 10px; font-size: 14px; }
         .legal-notice { font-size: 12px; color: #7f8c8d; text-align: justify; border-top: 1px solid #ddd; padding-top: 15px; }
+
+        /* Style du formulaire de contact */
+        .contact-form { margin-top: 25px; text-align: left; background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #e0e0e0; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #2c3e50; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: inherit; }
+        .submit-btn { background: #27ae60; color: white; border: none; padding: 12px 20px; border-radius: 4px; font-weight: bold; cursor: pointer; width: 100%; font-size: 16px; transition: background 0.2s; }
+        .submit-btn:hover { background: #219150; }
+
+        /* Optimisation pour l'impression / PDF */
+        @media print {
+            body { background: #fff; padding: 0; }
+            .container { box-shadow: none; padding: 0; max-width: 100%; }
+            .slider-btn, .zoom-hint, .video-section, .contact-section, .no-agency { display: none !important; }
+            .slide { display: none !important; }
+            .slide.active { display: block !important; height: 250px; }
+        }
     </style>
 </head>
 <body>
@@ -91,15 +115,15 @@
             <img src="Botanique (3).jpg" class="slide active" alt="Jardin Botanique" onclick="openModal(this)">
             <!-- 2. Maison -->
             <img src="maison.jpg" class="slide" alt="Façade de la maison" onclick="openModal(this)">
-            <!-- 3. Salon 1, 2, 5 -->
+            <!-- 3. Salon -->
             <img src="salon1.jpg" class="slide" alt="Salon - Vue 1" onclick="openModal(this)">
             <img src="salon2.jpg" class="slide" alt="Salon - Vue 2" onclick="openModal(this)">
             <img src="Salon3.jpg" class="slide" alt="Salon - Vue 3" onclick="openModal(this)">
-            <!-- 4. Room 1, 2, 4 -->
+            <!-- 4. Room -->
             <img src="room1.jpg" class="slide" alt="Chambre - Vue 1" onclick="openModal(this)">
             <img src="room2.jpg" class="slide" alt="Chambre - Vue 2" onclick="openModal(this)">
             <img src="room4.jpg" class="slide" alt="Chambre - Vue 3" onclick="openModal(this)">
-            <!-- 5. Bathroom 1, 2, 3 -->
+            <!-- 5. Bathroom -->
             <img src="bathroom1.jpg" class="slide" alt="Salle de bain - Vue 1" onclick="openModal(this)">
             <img src="bathroom2.jpg" class="slide" alt="Salle de bain - Vue 2" onclick="openModal(this)">
             <img src="bathroom3.jpg" class="slide" alt="Salle de bain - Vue 3" onclick="openModal(this)">
@@ -219,13 +243,49 @@
         </table>
     </div>
 
-    <!-- Boutons de Contact -->
+    <!-- Section de Contact & Actions (Imprimer, Signal, Telegram, etc.) -->
     <div class="contact-section">
         <h2>Ce bien vous intéresse ?</h2>
-        <p>Contactez directement le propriétaire pour organiser une visite :</p>
-        <a href="mailto:ibrahimrais@protonmail.com?subject=Demande%20d'information%20-%20Appartement%20Botanique%20(Rue%20de%20la%20Poste)" class="contact-btn">✉ Envoyer un E-mail</a>
-        <a href="tel:+32493836175" class="contact-btn">📞 Appeler le propriétaire</a>
+        <p>Contactez directement le propriétaire ou enregistrez l'annonce :</p>
+        
+        <!-- Boutons d'action rapide -->
+        <div style="margin-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+            <a href="tel:+32493836175" class="contact-btn">📞 Appeler</a>
+            <a href="mailto:ibrahimrais@protonmail.com?subject=Demande%20d'information%20-%20Appartement%20Botanique" class="contact-btn">✉ E-mail</a>
+            <a href="https://signal.me/#p/+32493836175" target="_blank" rel="noopener" class="contact-btn" style="background: #3a76f0;">💬 Signal</a>
+            <a href="https://t.me/vegashadowraven" target="_blank" rel="noopener" class="contact-btn" style="background: #24a1de;">✈️ Telegram</a>
+            <button onclick="window.print()" class="contact-btn" style="background: #e67e22; border: none; cursor: pointer;">🖨️ Imprimer / PDF</button>
+        </div>
+
         <div class="no-agency">⚠️ Agences s'abstenir SVP</div>
+
+        <!-- Formulaire de contact tout en bas -->
+        <div class="contact-form">
+            <h3 style="margin-top:0; color:#2c3e50; text-align:center;">Formulaire de demande de visite</h3>
+            <form action="https://formsubmit.co/ibrahimrais@protonmail.com" method="POST">
+                <!-- Configuration FormSubmit -->
+                <input type="hidden" name="_subject" value="Nouvelle demande de visite - Rue de la Poste 10">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <label for="name">Nom complet *</label>
+                    <input type="text" id="name" name="nom" required placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required placeholder="votre.email@exemple.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone *</label>
+                    <input type="tel" id="phone" name="telephone" required placeholder="+32 ...">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message ou créneaux souhaités</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Bonjour, je souhaite visiter cet appartement..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">📩 Envoyer ma demande</button>
+            </form>
+        </div>
     </div>
 
     <!-- Clause de non-responsabilité -->
