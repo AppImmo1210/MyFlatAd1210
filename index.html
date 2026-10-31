@@ -16,14 +16,22 @@
         
         /* Style de la galerie défilante */
         .slider-container { position: relative; width: 100%; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); background: #000; }
-        .slide { display: none; width: 100%; height: 320px; object-fit: cover; }
+        .slide { display: none; width: 100%; height: 320px; object-fit: cover; cursor: pointer; transition: opacity 0.2s; }
+        .slide:hover { opacity: 0.9; }
         .slide.active { display: block; }
         .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 22px; padding: 10px 15px; cursor: pointer; border-radius: 3px; transition: background 0.2s; z-index: 10; }
         .slider-btn:hover { background: rgba(0,0,0,0.8); }
         .prev-btn { left: 10px; }
         .next-btn { right: 10px; }
         .slide-counter { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; padding: 4px 8px; font-size: 12px; border-radius: 4px; z-index: 10; }
-        
+        .zoom-hint { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); color: white; padding: 4px 8px; font-size: 11px; border-radius: 4px; z-index: 10; pointer-events: none; }
+
+        /* Style de la modale pour voir en grand */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center; }
+        .modal-content { max-width: 90%; max-height: 90vh; border-radius: 6px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); object-fit: contain; }
+        .close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; transition: color 0.2s; }
+        .close-modal:hover { color: #e74c3c; }
+
         .intro-box { background: #fdfdfd; border: 1px solid #e0e0e0; border-left: 4px solid #2980b9; padding: 20px; border-radius: 0 6px 6px 0; font-size: 15px; color: #444; line-height: 1.7; display: flex; flex-direction: column; justify-content: center; }
 
         /* Section Situation géographique & Agencement */
@@ -80,33 +88,34 @@
     <div class="main-content">
         <div class="slider-container">
             <!-- 1. Botanique -->
-            <img src="Botanique (3).jpg" class="slide active" alt="Jardin Botanique">
+            <img src="Botanique (3).jpg" class="slide active" alt="Jardin Botanique" onclick="openModal(this)">
             <!-- 2. Maison -->
-            <img src="maison.jpg" class="slide" alt="Façade de la maison">
+            <img src="maison.jpg" class="slide" alt="Façade de la maison" onclick="openModal(this)">
             <!-- 3. Salon 1, 2, 5 -->
-            <img src="salon1.jpg" class="slide" alt="Salon - Vue 1">
-            <img src="salon2.jpg" class="slide" alt="Salon - Vue 2">
-            <img src="Salon3.jpg" class="slide" alt="Salon - Vue 3">
+            <img src="salon1.jpg" class="slide" alt="Salon - Vue 1" onclick="openModal(this)">
+            <img src="salon2.jpg" class="slide" alt="Salon - Vue 2" onclick="openModal(this)">
+            <img src="Salon3.jpg" class="slide" alt="Salon - Vue 3" onclick="openModal(this)">
             <!-- 4. Room 1, 2, 4 -->
-            <img src="room1.jpg" class="slide" alt="Chambre - Vue 1">
-            <img src="room2.jpg" class="slide" alt="Chambre - Vue 2">
-            <img src="room4.jpg" class="slide" alt="Chambre - Vue 3">
+            <img src="room1.jpg" class="slide" alt="Chambre - Vue 1" onclick="openModal(this)">
+            <img src="room2.jpg" class="slide" alt="Chambre - Vue 2" onclick="openModal(this)">
+            <img src="room4.jpg" class="slide" alt="Chambre - Vue 3" onclick="openModal(this)">
             <!-- 5. Bathroom 1, 2, 3 -->
-            <img src="bathroom1.jpg" class="slide" alt="Salle de bain - Vue 1">
-            <img src="bathroom2.jpg" class="slide" alt="Salle de bain - Vue 2">
-            <img src="bathroom3.jpg" class="slide" alt="Salle de bain - Vue 3">
+            <img src="bathroom1.jpg" class="slide" alt="Salle de bain - Vue 1" onclick="openModal(this)">
+            <img src="bathroom2.jpg" class="slide" alt="Salle de bain - Vue 2" onclick="openModal(this)">
+            <img src="bathroom3.jpg" class="slide" alt="Salle de bain - Vue 3" onclick="openModal(this)">
             <!-- 6. Kitchen -->
-            <img src="kitchen.jpg" class="slide" alt="Cuisine lumineuse">
+            <img src="kitchen.jpg" class="slide" alt="Cuisine lumineuse" onclick="openModal(this)">
             <!-- 7. PF -->
-            <img src="PF.jpg" class="slide" alt="Plateforme lumineuse">
+            <img src="PF.jpg" class="slide" alt="Plateforme lumineuse" onclick="openModal(this)">
             <!-- 8. ELEC -->
-            <img src="ELEC.png" class="slide" alt="Attestation Électricité">
+            <img src="ELEC.png" class="slide" alt="Attestation Électricité" onclick="openModal(this)">
             <!-- 9. PEB -->
-            <img src="PEB.png" class="slide" alt="Certificat PEB">
+            <img src="PEB.png" class="slide" alt="Certificat PEB" onclick="openModal(this)">
 
             <!-- Boutons de navigation -->
             <button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
             <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+            <div class="zoom-hint">🔍 Cliquer pour zoomer</div>
             <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">15</span></div>
         </div>
         
@@ -123,7 +132,13 @@
         </div>
     </div>
 
-    <!-- Section Visite Vidéo YouTube (déplacée ici, juste après la galerie photo principale) -->
+    <!-- Fenêtre Modale (lightbox) pour afficher l'image en grand -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <!-- Section Visite Vidéo YouTube -->
     <div class="video-section">
         <h2>🎥 Visite virtuelle en vidéo</h2>
         <div class="video-container">
@@ -219,7 +234,7 @@
     </div>
 </div>
 
-<!-- Script JavaScript pour faire fonctionner la galerie -->
+<!-- Script JavaScript pour la galerie et le zoom grand format -->
 <script>
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.slide');
@@ -245,6 +260,18 @@
 
     function changeSlide(n) {
         showSlide(currentSlideIndex + n);
+    }
+
+    // Fonctions pour ouvrir et fermer l'image en grand (Lightbox)
+    function openModal(imgElement) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modal.style.display = "flex";
+        modalImg.src = imgElement.src;
+    }
+
+    function closeModal() {
+        document.getElementById('imageModal').style.display = "none";
     }
 </script>
 
