@@ -116,7 +116,7 @@
             <button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
             <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
             <div class="zoom-hint">🔍 Cliquer pour zoomer</div>
-            <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">15</span></div>
+            <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">14</span></div>
         </div>
         
         <div class="intro-box">
@@ -135,7 +135,7 @@
     <!-- Fenêtre Modale (lightbox) pour afficher l'image en grand -->
     <div id="imageModal" class="modal" onclick="closeModal()">
         <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImg">
+        <img class="modal-content" id="modalImg" onclick="event.stopPropagation()">
     </div>
 
     <!-- Section Visite Vidéo YouTube -->
@@ -192,7 +192,7 @@
                 <div class="detail-box">
                     <h3>🏠 Agencement intérieur (55 m²)</h3>
                     <ul>
-                        <li><strong>(Espace de vie fluide = bon potentiel de réaménagement)</li>
+                        <li><strong>Espace de vie :</strong> Espace fluide avec bon potentiel de réaménagement.</li>
                         <li><strong>Séjour / Salle à manger :</strong> ~19 m².</li>
                         <li><strong>Chambre :</strong> ~15 m² avec double vitrage et volets roulants.</li>
                         <li><strong>Cuisine :</strong> ~10 m² lumineuse sous plateforme (toiture plate).</li>
